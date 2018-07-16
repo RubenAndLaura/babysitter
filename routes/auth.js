@@ -24,17 +24,25 @@ authRoutes.get("/signup", (req, res, next) => {
 });
 
 authRoutes.post("/signup", (req, res, next) => {
-  const username = req.body.username;
+  console.log(req.body)
+  const email = req.body.email;
   const password = req.body.password;
-  const rol = req.body.role;
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  const name = req.body.name;
+  const lastname = req.body.lastname;
+  const street = req.body.street;
+  const city = req.body.city;
+  const zip = req.body.zip;
+  const phone = req.body.phone;
+  const isBabysitter = Boolean(req.body.isBabysitter);
+
+  if (email === "" || password === "") {
+    res.render("auth/signup", { message: "Indicate email and password" });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User.findOne({ email }, "email", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", { message: "The email already exists" });
       return;
     }
 
@@ -42,9 +50,17 @@ authRoutes.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      username,
+      email,
       password: hashPass,
-      role:"teacher"
+      name,
+      lastname,
+      address: {
+        street,
+        city,
+        zip,
+      },
+      phone,
+      isBabysitter,
     });
 
     newUser.save((err) => {

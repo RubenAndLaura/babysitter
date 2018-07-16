@@ -5,7 +5,7 @@ const userSchema = new Schema({
   name: String,
   lastname: String,
   picture: String,
-  isBabysitter: {type: boolean, default: false},
+  isBabysitter: {type: Boolean, default: false},
   address: {
     street: String,
     city: String,

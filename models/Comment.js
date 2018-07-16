@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const statusSchema = new Schema({
+const commentSchema = new Schema({
   userFrom: Schema.Types.ObjectId,
   userTo: Schema.Types.ObjectId,
   comment: String,
@@ -13,5 +13,5 @@ const statusSchema = new Schema({
   }
 });
 
-const Status = mongoose.model('Status', statusSchema);
-module.exports = Status;
+const Comment = mongoose.model('Comment', commentSchema);
+module.exports = Comment;
