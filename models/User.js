@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
   name: String,
   lastname: String,
   picture: String,
+  isBabysitter: {type: boolean, default: false},
   address: {
     street: String,
     city: String,

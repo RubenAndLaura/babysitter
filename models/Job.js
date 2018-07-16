@@ -2,16 +2,11 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const jobSchema = new Schema({
-  user: String,
+  user: Schema.Types.ObjectId,
   description: String,
   jobDate: Date,
-  address: {
-    street: String,
-    city: String,
-    zip: String
-  },
-  phone: String,
-  fee: String
+  fee: String,
+  status: { type: String, enum: ["Pending", "Accepted", "Done"], default: "Pending"}
 }, 
 {
   timestamps: {
