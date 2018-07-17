@@ -26,22 +26,26 @@ router.get(
   }
 );
 
-+
-
 router.post(
   "/profile/comment",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
     const { userFrom, userTo, comment } = req.body;
     new Comment({ userFrom, userTo, comment }).save().then(comment => {
-      res.redirect("/");
+      res.redirect(`/user/profile/comment/${userTo}`);
     });
   }
 );
 
-router.get("/profile/comment/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
-  Comment.findByIdAndRemove(req.params.id, () => res.redirect('/'));
-})
+router.get(
+  "/profile/comment/delete/:id",
+  ensureLoggedIn("/auth/login"),
+  (req, res, next) => {
+    Comment.findByIdAndRemove(req.params.id).then( () =>
+      res.redirect('/')
+    );
+  }
+);
 
 /* GET Edit the user in DB */
 router.get("/profile/edit", ensureLoggedIn("/auth/login"), (req, res, next) => {

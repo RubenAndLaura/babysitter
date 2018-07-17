@@ -14,29 +14,19 @@
 
 
 <h2>All the comments</h2>
-
-
     {{#each comment}}
     <div>
         <h5>{{this.userFrom}}</h5>
         <h5>{{this.userTo}}</h5>
         <p>{{this.comment}}</p>
-        <a href="/delete/comment/{{_id}}">Delete comment</a>
+        <a href=`/user/profile/comment/delete/${userTo}`>Delete comment</a>
     </div>
     {{/each}}
 
-
-
 <form action="/user/profile/comment" method="POST">
-
-<label for="">Text:</label>
-<input type="text" name="comment">{{comment.comment}}</input>  
-
-<input type="hidden" name="userTo" value="{{userTo}}">
-<input type="hidden" name="userFrom" value="{{userFrom}}"> <br>
-
-<input type="submit" value="Add comment">
-
-
-
+    <label for="">Text:</label>
+    <input type="text" name="comment">{{comment.comment}}</input>  
+    <input type="hidden" name="userTo" value="{{userTo}}">
+    <input type="hidden" name="userFrom" value="{{userFrom}}"> <br>
+    <input type="submit" value="Add comment">
 </form>
