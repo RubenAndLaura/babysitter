@@ -1,23 +1,32 @@
 const express = require('express');
 const userRoutes  = express.Router();
 const User = require("../models/User");
+const {ensureLoggedIn} = require('../middlewares/isLoggedIn');
 
 /* GET profile page */
-userRoutes.get('/profile', (req, res, next) => {
-  res.render('user/profile');
+userRoutes.get('/profile', ensureLoggedIn("/auth/login"), (req, res, next) => {
+  User.findById(req.user.id).then(user => {
+    res.render('user/profile',{user});
+  })
 });
 
-/* CR(U)D: GET Edit the user in DB */
-userRoutes.get('/profile/edit', (req, res, next) => {
-    User.findById(req.params.id).then(user => {
-      res.render('user/edit',{user});;
+userRoutes.get('/profile/:id', ensureLoggedIn("/auth/login"), (req, res, next) => {
+  User.findById(req.params.id).then(user => {
+    res.render('user/profile',{user});
+  })
+});
+
+/* GET Edit the user in DB */
+userRoutes.get('/profile/edit', ensureLoggedIn("/auth/login"), (req, res, next) => {
+    User.findById(req.user.id).then(user => {
+      res.render('/edit',{user});
     })
   });
 
-/* CR(U)D: POST Edit the user in DB */
-userRoutes.post('/profile/edit/:id', (req,res) => {
+/* POST Edit the user in DB */
+userRoutes.post('/profile/edit', ensureLoggedIn("/auth/login"), (req,res) => {
     const { name, lastname, picture, isBabysitter, phone, email, password } = req.body;
-    User.findByIdAndUpdate(req.params.id,{ email, password, name, lastname, phone, isBabysitter})
+    User.findByIdAndUpdate(req.user.id,{ name, lastname, picture, isBabysitter, phone, email, password })
         .then( user => {
           res.redirect('/profile/:id')
         })
