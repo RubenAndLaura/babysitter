@@ -5,6 +5,9 @@ const User = require("../models/User");
 const Job = require("../models/Job.js");
 const Comment = require("../models/Comment");
 
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
+
 const dbName = process.env.DBURL;
 mongoose
   .connect(dbName)
@@ -12,6 +15,9 @@ mongoose
     User.collection.drop();
     Comment.collection.drop();
     Job.collection.drop();
+
+const salt = bcrypt.genSaltSync(bcryptSalt);
+const hashPass = bcrypt.hashSync('1', salt);
 
     User.create({
       name: "Laura",
@@ -25,7 +31,7 @@ mongoose
       },
       phone: "655 543 234",
       email: "lauracanosa@gamil.com",
-      password: "112"
+      password: hashPass,
     })
       .then(user => {
         Comment.create({
@@ -54,20 +60,4 @@ mongoose
   })
   .catch(err => console.log(err));
 
-/* const UserSchema = new mongoose.Schema({
-    name: "Laura",
-    lastname: "Canosa",
-    picture: "",
-    isBabysitter: true,
-    address: {
-      street: "Paseo de la Chopera, 14",
-      city: "Madrid",
-      zip: "28045"
-    },
-    phone: "655 543 234",
-    email: "lauracanosa@gamil.com",
-    password: "111"
-  }).then( user => {
-      console.log(user._id)
-      mongoose.disconnect();
-  });  */
+

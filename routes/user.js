@@ -1,34 +1,62 @@
-const express = require('express');
-const userRoutes  = express.Router();
+const express = require("express");
+const router = express.Router();
 const User = require("../models/User");
-const {ensureLoggedIn} = require('../middlewares/isLoggedIn');
+const Comment = require("../models/Comment");
+const { ensureLoggedIn } = require("../middlewares/isLoggedIn");
 
 /* GET profile page */
-userRoutes.get('/profile', ensureLoggedIn("/auth/login"), (req, res, next) => {
+router.get("/profile", ensureLoggedIn("/auth/login"), (req, res, next) => {
   User.findById(req.user.id).then(user => {
-    res.render('user/profile',{user});
-  })
+    res.render("user/profile", { user });
+  });
 });
 
-userRoutes.get('/profile/:id', ensureLoggedIn("/auth/login"), (req, res, next) => {
-  User.findById(req.params.id).then(user => {
-    res.render('user/profile',{user});
-  })
-});
+/* GET comment page */
+router.get(
+  "/profile/comment/:id",
+  ensureLoggedIn("/auth/login"),
+  (req, res, next) => {
+    Comment.find({ userTo: req.params.id }).then(comment => {
+      res.render("user/comment", { comment });
+    });
+  }
+);
 
 /* GET Edit the user in DB */
-userRoutes.get('/profile/edit', ensureLoggedIn("/auth/login"), (req, res, next) => {
-    User.findById(req.user.id).then(user => {
-      res.render('/edit',{user});
-    })
+router.get("/profile/edit", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  User.findById(req.user.id).then(user => {
+    res.render("/edit", { user });
   });
+});
 
 /* POST Edit the user in DB */
-userRoutes.post('/profile/edit', ensureLoggedIn("/auth/login"), (req,res) => {
-    const { name, lastname, picture, isBabysitter, phone, email, password } = req.body;
-    User.findByIdAndUpdate(req.user.id,{ name, lastname, picture, isBabysitter, phone, email, password })
-        .then( user => {
-          res.redirect('/profile/:id')
-        })
-    })
-module.exports = userRoutes;
+router.post("/profile/edit", ensureLoggedIn("/auth/login"), (req, res) => {
+  const {
+    name,
+    lastname,
+    picture,
+    isBabysitter,
+    phone,
+    email,
+    password
+  } = req.body;
+  User.findByIdAndUpdate(req.user.id, {
+    name,
+    lastname,
+    picture,
+    isBabysitter,
+    phone,
+    email,
+    password
+  }).then(user => {
+    res.redirect("/profile/:id");
+  });
+});
+
+router.get("/profile/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  User.findById(req.params.id).then(user => {
+    res.render("user/profile", { user });
+  });
+});
+
+module.exports = router;
