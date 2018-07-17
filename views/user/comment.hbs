@@ -5,6 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">Home</a>
       <a class="nav-item nav-link" href="/user/profile">Profile</a>
       <a class="nav-item nav-link" href="#">Logout</a>
     </div>
@@ -14,17 +15,28 @@
 
 <h2>All the comments</h2>
 
-<ul>
+
     {{#each comment}}
-        <li>{{this.userFrom}}</li>
-        <li>{{this.userTo}}</li>
-        <li>{{this.comment}}</li>
+    <div>
+        <h5>{{this.userFrom}}</h5>
+        <h5>{{this.userTo}}</h5>
+        <p>{{this.comment}}</p>
+        <a href="/delete/comment/{{_id}}">Delete comment</a>
+    </div>
     {{/each}}
-</ul>
 
 
-<h1>Comentarios</h1>
-<input>{{user.comment}}</input>  <br>
-<a href="/comment/:id">Add comment</a>
-<a href="">Edit comment</a>
-<a href="">Delete comment</a>
+
+<form action="/user/profile/comment" method="POST">
+
+<label for="">Text:</label>
+<input type="text" name="comment">{{comment.comment}}</input>  
+
+<input type="hidden" name="userTo" value="{{userTo}}">
+<input type="hidden" name="userFrom" value="{{userFrom}}"> <br>
+
+<input type="submit" value="Add comment">
+
+
+
+</form>
