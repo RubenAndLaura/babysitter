@@ -13,8 +13,8 @@
   <br><br>
 
   <label for="name">Name</label>
-  <input id="name" type="text" name="name" placeholder="Name" required>
-  <input id="lastname" type="text" name="lastname" placeholder="Lastname" value="{{user.name}}" required>
+  <input id="name" type="text" name="name" placeholder="Name" value="{{user.name}}" required>
+  <input id="lastname" type="text" name="lastname" placeholder="Lastname" value="{{user.lastname}}" required>
 
   <br><br>
 
@@ -36,3 +36,7 @@
   <button type="submit">EDIT</button>
 
 </form>
+
+<br><br>
+
+<a href="/user/delete/{{_id}}">Eliminar Usuario</a>
