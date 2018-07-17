@@ -1,6 +1,6 @@
 const express = require("express");
 const passport = require('passport');
-const authRoutes = express.Router();
+const router = express.Router();
 const User = require("../models/User");
 
 // Bcrypt to encrypt passwords
@@ -8,22 +8,22 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 
-authRoutes.get("/login", (req, res, next) => {
+router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
-authRoutes.post("/login", passport.authenticate("local", {
+router.post("/login", passport.authenticate("local", {
   successRedirect: "/user/profile",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
 }));
 
-authRoutes.get("/signup", (req, res, next) => {
+router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
-authRoutes.post("/signup", (req, res, next) => {
+router.post("/signup", (req, res, next) => {
   console.log(req.body)
   const email = req.body.email;
   const password = req.body.password;
@@ -73,9 +73,12 @@ authRoutes.post("/signup", (req, res, next) => {
   });
 });
 
-authRoutes.get("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
-module.exports = authRoutes;
+
+
+
+module.exports = router;
