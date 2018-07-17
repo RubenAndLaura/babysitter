@@ -17,6 +17,7 @@ userRoutes.get('/profile/:id', ensureLoggedIn("/auth/login"), (req, res, next) =
   })
 });
 
+
 /* CR(U)D: GET Edit the User in DB */
 userRoutes.get('/edit', ensureLoggedIn("/auth/login"), (req, res, next) => {
     User.findById(req.user.id).then(user => {

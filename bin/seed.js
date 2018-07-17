@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 const User = require("../models/User");
-const Job = require("../models/Job.js");
+const Ad = require("../models/Ad.js");
 const Comment = require("../models/Comment");
 
 const dbName = process.env.DBURL;
@@ -11,7 +11,7 @@ mongoose
   .then(() => {
     User.collection.drop();
     Comment.collection.drop();
-    Job.collection.drop();
+    Ad.collection.drop();
 
     User.create({
       name: "Laura",
@@ -37,15 +37,15 @@ mongoose
             console.log(comments);
           })
           .catch(err => console.log(err));
-        Job.create({
+        Ad.create({
           user: user._id,
           description: "Busco niñera para hoy",
-          jobDate: 2018 - 07 - 16,
+          adDate: 2018 - 07 - 16,
           fee: "10",
           status: "Pending"
         })
-          .then(jobs => {
-            console.log(jobs);
+          .then(ads => {
+            console.log(ads);
           })
           .catch(err => console.log(err));
         //mongoose.disconnect();
@@ -53,21 +53,3 @@ mongoose
       .catch(err => console.log(err));
   })
   .catch(err => console.log(err));
-
-/* const UserSchema = new mongoose.Schema({
-    name: "Laura",
-    lastname: "Canosa",
-    picture: "",
-    isBabysitter: true,
-    address: {
-      street: "Paseo de la Chopera, 14",
-      city: "Madrid",
-      zip: "28045"
-    },
-    phone: "655 543 234",
-    email: "lauracanosa@gamil.com",
-    password: "111"
-  }).then( user => {
-      console.log(user._id)
-      mongoose.disconnect();
-  });  */
