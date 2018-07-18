@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const Comment = require("../models/Comment");
 const { ensureLoggedIn } = require("../middlewares/isLoggedIn");
+const uploadCloud = require("../config/cloudinary.js");
 
 /* GET profile page */
 router.get("/profile", ensureLoggedIn("/auth/login"), (req, res, next) => {
@@ -56,7 +57,7 @@ router.get("/profile/edit", ensureLoggedIn("/auth/login"), (req, res, next) => {
 });
 
 /* POST Edit the user in DB */
-router.post("/profile/edit", ensureLoggedIn("/auth/login"), (req, res) => {
+router.post("/profile/edit", [ensureLoggedIn("/auth/login"), uploadCloud.single("photo")], (req, res, next) => {
   const {
     name,
     lastname,
@@ -64,8 +65,10 @@ router.post("/profile/edit", ensureLoggedIn("/auth/login"), (req, res) => {
     isBabysitter,
     phone,
     email,
-    password
+    password,
   } = req.body;
+  const photopath = req.file.url;
+  const photooriginalName = req.file.photo;
   User.findByIdAndUpdate(req.user.id, {
     name,
     lastname,
@@ -73,7 +76,9 @@ router.post("/profile/edit", ensureLoggedIn("/auth/login"), (req, res) => {
     isBabysitter,
     phone,
     email,
-    password
+    password,
+    photopath,
+    photooriginalName
   }).then(user => {
     res.redirect("/user/profile");
   });
