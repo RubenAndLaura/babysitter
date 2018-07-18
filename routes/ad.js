@@ -26,4 +26,9 @@ adRoutes.post('/new', (req, res, next) => {
   });
 });
 
+/* CRU(D): Update the book in DB */
+adRoutes.get('/delete/:id',(req,res) => {
+  Ad.findByIdAndRemove(req.params.id, () => res.redirect('/ads'));
+})
+
 module.exports = adRoutes;

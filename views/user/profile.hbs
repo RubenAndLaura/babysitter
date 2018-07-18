@@ -24,6 +24,6 @@
         <p>Address. Street: {{user.address.street}} / City: {{user.address.city}} / Zip: {{user.address.zip}}</span></p>
         <p>Email: {{user.email}}</p>
         <p>Phone: {{user.phone}}</p>
-        <p>IsBabySitter:</p>
+        <p>IsBabySitter:{{#if user.isBabysitter}} yes {{else}} no {{/if}}</p>
     </div>
 </div>

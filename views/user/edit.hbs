@@ -31,7 +31,7 @@
   <br><br>
 
   <label for="isbabysitter">Do you want to be a nanny?</label>
-  <input id="isBabysitter" type="checkbox" name="isBabysitter" value="{{user.isBabySitter}}" {{#if user.isBabySitter}}checked{{/if}}>
+  <input id="isBabysitter" type="checkbox" name="isBabysitter" {{#if user.isBabysitter}}checked{{/if}}>
 
   <button type="submit">EDIT</button>
 
@@ -39,4 +39,4 @@
 
 <br><br>
 
-<a href="/user/delete/{{_id}}">Eliminar Usuario</a>
+<a href="/user/delete">Eliminar Usuario</a>
