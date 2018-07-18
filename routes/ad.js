@@ -29,8 +29,10 @@ adRoutes.post('/new', ensureLoggedIn("/auth/login"), (req, res, next) => {
 });
 
 /* CRU(D): Delete the Ad in DB */
-adRoutes.get('/delete/:id',ensureLoggedIn("/auth/login"), (req,res) => {
-  Ad.findByIdAndRemove(req.params.id, () => res.redirect('/ads'));
+adRoutes.get('/delete/:id',ensureLoggedIn("/auth/login"), (req, res, next) => {
+  const id = req.params.id
+  Ad.findByIdAndRemove(id).then( () => 
+  res.redirect('/ad'));
 })
 
 module.exports = adRoutes;
