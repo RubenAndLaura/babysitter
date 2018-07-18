@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 const User = require("../models/User");
-const Job = require("../models/Job.js");
+const Ad = require("../models/Ad.js");
 const Comment = require("../models/Comment");
 
 const bcrypt = require("bcrypt");
@@ -14,7 +14,7 @@ mongoose
   .then(() => {
     User.collection.drop();
     Comment.collection.drop();
-    Job.collection.drop();
+    Ad.collection.drop();
 
 const salt = bcrypt.genSaltSync(bcryptSalt);
 const hashPass = bcrypt.hashSync('1', salt);
@@ -43,15 +43,15 @@ const hashPass = bcrypt.hashSync('1', salt);
             console.log(comments);
           })
           .catch(err => console.log(err));
-        Job.create({
+        Ad.create({
           user: user._id,
           description: "Busco niñera para hoy",
-          jobDate: 2018 - 07 - 16,
+          adDate: 2018 - 07 - 16,
           fee: "10",
           status: "Pending"
         })
-          .then(jobs => {
-            console.log(jobs);
+          .then(ads => {
+            console.log(ads);
           })
           .catch(err => console.log(err));
         //mongoose.disconnect();
@@ -59,5 +59,3 @@ const hashPass = bcrypt.hashSync('1', salt);
       .catch(err => console.log(err));
   })
   .catch(err => console.log(err));
-
-

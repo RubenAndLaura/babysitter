@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const jobSchema = new Schema({
+const adSchema = new Schema({
   user: Schema.Types.ObjectId,
   description: String,
-  jobDate: Date,
-  fee: String,
+  adDate: Date,
+  fee: Number,
   status: { type: String, enum: ["Pending", "Accepted", "Done"], default: "Pending"}
 }, 
 {
@@ -15,5 +15,5 @@ const jobSchema = new Schema({
   }
 });
 
-const Job = mongoose.model('Job', jobSchema);
-module.exports = Job;
+const Ad = mongoose.model('Ad', adSchema);
+module.exports = Ad;

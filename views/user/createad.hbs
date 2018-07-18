@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">My Baby Sitter</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/user/profile">Profile</a>
+      <a class="nav-item nav-link" href="/">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<br><br>
+
+<h2>Create Ad</h2>
+
+<form action="/user/createad" method="POST" id="form-container">
+  
+  <label for="description">Description</label>
+  <input id="password" type="text" name="description" placeholder="Description" required>
+
+  <br><br>
+
+  <label for="adDate">adDate</label>
+  <input id="adDate" type="text" name="adDate" placeholder="adDate" required>
+
+  <br><br>
+
+  <label for="fee">Fee</label>
+  <input id="fee" type="text" name="fee" placeholder="Fee" required>
+ 
+  <br><br>
+
+  <label for="status">Status</label>
+  <input id ="status" type="text" name="status" placeholder="Status" required>
+
+  <br><br>
+
+  <button>Create account</button>
+
+  <br><br>
+
+<a href="/ad">Back to the list</a>

@@ -51,7 +51,6 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -68,13 +67,9 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
   
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
-    
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -84,6 +79,9 @@ app.use('/auth', authRoutes);
 
 const userRoutes = require('./routes/user');
 app.use('/user', userRoutes)
+
+const adRoutes = require('./routes/ad');
+app.use('/ad', adRoutes)
       
 
 module.exports = app;

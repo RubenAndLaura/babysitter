@@ -5,21 +5,28 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="/">Home</a>
-      <a class="nav-item nav-link" href="/auth/login"> View ads <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="profile/edit/">Edit profile</a>
-      <a class="nav-item nav-link" href="#">Logout</a>
+      <a class="nav-item nav-link active" href="/ad">View Ads<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/user/edit/">Edit Profile</a>
+      <a class="nav-item nav-link" href="/">Logout</a>
     </div>
   </div>
 </nav>
+
+<br></br>
+
+<h3>Profile</h3>
+
 <div class="">
     <div>
         <img src="" alt="">
-        <h3>Name: {{user.name}} </h3>
-        <h3>Lastname: {{user.lastname}}</h3>
+        <p>Name: {{user.name}}</p>
+        <p>Lastname: {{user.lastname}}</p>
+        <p>Address. Street: {{user.address.street}} / City: {{user.address.city}} / Zip: {{user.address.zip}}</span></p>
         <p>Email: {{user.email}}</p>
         <p>Adress: <span>{{user.address.street}} , {{user.address.city}}, {{user.address.zip}}</span></p>
         <p>{{user.phone}}</p>
         <button><a href="/user/profile/comment/{{user._id}}">See comments</a></button>
+        <p>Phone: {{user.phone}}</p>
+        <p>IsBabySitter:{{#if user.isBabysitter}} yes {{else}} no {{/if}}</p>
     </div>
 </div>

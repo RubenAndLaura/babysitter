@@ -1,1 +1,42 @@
 <h1>Edit profile</h1>
+
+<form action="/user/edit" method="POST" id="form-container">
+  
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="Email" value="{{user.email}}" required>
+    
+  <br><br>
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Password" value="{{user.password}}" required>
+
+  <br><br>
+
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" placeholder="Name" value="{{user.name}}" required>
+  <input id="lastname" type="text" name="lastname" placeholder="Lastname" value="{{user.lastname}}" required>
+
+  <br><br>
+
+  <label for="address">Address:</label>
+  <input id="street" type="text" name="street" placeholder="Street" value="{{user.address.street}}" required>
+  <input id="city" type="text" name="city" placeholder="City" value="{{user.address.city}}" required>
+  <input id="zip" type="text" name="zip" placeholder="Zip" value="{{user.address.zip}}" required>
+ 
+  <br><br>
+
+  <label for="phone">Phone:</label>
+  <input id ="phone" type="text" name="phone" placeholder="Phone" value="{{user.phone}}" required>
+
+  <br><br>
+
+  <label for="isbabysitter">Do you want to be a nanny?</label>
+  <input id="isBabysitter" type="checkbox" name="isBabysitter" {{#if user.isBabysitter}}checked{{/if}}>
+
+  <button type="submit">EDIT</button>
+
+</form>
+
+<br><br>
+
+<a href="/user/delete">Eliminar Usuario</a>

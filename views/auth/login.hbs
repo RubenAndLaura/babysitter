@@ -1,5 +1,6 @@
 
 <h2>Login</h2>
+<p>Please, enter your email and password to access your profile!</p>
 
 <form action="/auth/login" method="POST" id="form-container">
   <label for="email">Email</label>
@@ -9,7 +10,7 @@
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+  
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
