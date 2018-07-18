@@ -21,10 +21,10 @@
         {{#if user.photopath}} <img src="{{user.photopath}}" alt="profile-photo" width="300"> {{/if}}
         <p>Name: {{user.name}}</p>
         <p>Lastname: {{user.lastname}}</p>
-        <p>Address. Street: {{user.address.street}} / City: {{user.address.city}} / Zip: {{user.address.zip}}</span></p>
+        <p>Address: {{user.address.street}} / City: {{user.address.city}} / Zip: {{user.address.zip}}</span></p>
         <p>Email: {{user.email}}</p>
         <p>Phone: {{user.phone}}</p>
-        <p>IsBabySitter:{{#if user.isBabysitter}} yes {{else}} no {{/if}}</p>
+        <p>Are you babysitter?:{{#if user.isBabysitter}} yes {{else}} no {{/if}}</p>
         <button><a href="/user/profile/comment/{{user._id}}">See comments</a></button>
     </div>
 </div>
