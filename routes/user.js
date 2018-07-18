@@ -16,7 +16,7 @@ router.get(
   "/profile/comment/:id",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    Comment.find({ userTo: req.params.id }).then(comment => {
+    Comment.find({ userTo: req.params.id }).sort().then(comment => {
       res.render("user/comment", {
         comment,
         userTo: req.params.id,
@@ -37,12 +37,13 @@ router.post(
   }
 );
 
-router.get(
-  "/profile/comment/delete/:id",
+router.post(
+  "/profile/comment/delete",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    Comment.findByIdAndRemove(req.params.id).then( () =>
-      res.redirect('/')
+    const { commentId, userTo } = req.body
+    Comment.findByIdAndRemove(commentId).then( () =>
+      res.redirect(`/user/profile/comment/${userTo}`)
     );
   }
 );
