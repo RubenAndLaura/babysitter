@@ -1,7 +1,7 @@
 <!-- views/auth/signup.hbs -->
 <h2>Signup</h2>
 
-<form action="/auth/signup" method="POST" id="form-container">
+<form action="/auth/signup" method="POST" id="form-container" enctype="multipart/form-data">
   
   <label for="email">Email</label>
   <input id="email" type="email" name="email" placeholder="Email" required>
@@ -34,6 +34,12 @@
   <label for="isbabysitter">Do you want to be a nanny?</label>
   <input type="checkbox" name="isBabysitter" id="isBabysitter">
 
+  <br><br>
+
+  <label for="photo">Upload your photo</label>
+  <input type="file" id="photo" name="photo">
+
+
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
@@ -41,6 +47,8 @@
   <br><br>
 
   <button>Create account</button>
+
+  <br><br>
 
   <p class="account-message">
     Do you already have an account?

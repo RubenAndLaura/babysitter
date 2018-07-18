@@ -14,6 +14,8 @@ const userSchema = new Schema({
   phone: String,
   email: String,
   password: String,
+  photopath: String,
+  photooriginalName: String
 }, 
 {
   timestamps: {

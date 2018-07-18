@@ -2,6 +2,11 @@
 
 <form action="/user/profile/edit" method="POST" id="form-container">
   
+  <label for="photo">Upload your photo</label>
+  <input type="file" id="photo" name="photo">
+
+  <br><br>
+  
   <label for="email">Email</label>
   <input id="email" type="email" name="email" placeholder="Email" value="{{user.email}}" required>
     
@@ -32,6 +37,8 @@
 
   <label for="isbabysitter">Do you want to be a nanny?</label>
   <input id="isBabysitter" type="checkbox" name="isBabysitter" {{#if user.isBabysitter}}checked{{/if}}>
+
+  <br><br>
 
   <button type="submit">EDIT</button>
 
