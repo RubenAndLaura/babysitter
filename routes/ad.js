@@ -6,28 +6,29 @@ const {ensureLoggedIn} = require('../middlewares/isLoggedIn');
 
 /* C(R)UD: Retrieve -> List all Ads */
 adRoutes.get('/', ensureLoggedIn("/auth/login"), (req, res, next) => {
-  Ad.find({}).sort({updated_at:-1}).then( ads => {
+  Ad.find().populate("user").sort({updated_at:-1}).then( ads => {
+    console.log(ads)
     res.render('user/ads', {ads});
   })
 });
 
-/* (C)RUD: Add a ad form */
+/* (C)RUD: Add an Ad form */
 adRoutes.get('/new', ensureLoggedIn("/auth/login"), (req, res, next) => {
   res.render('user/createad');
 });
 
-/* (C)RUD: Create the ad in DB */
+/* (C)RUD: Create the Ad in DB */
 adRoutes.post('/new', ensureLoggedIn("/auth/login"), (req, res, next) => {
   const user = req.user._id;
-  const { description, adDate, fee, status } = req.body;
-  new Ad({ user, description, adDate, fee, status })
+  const { title, description, adDate, fee, status } = req.body;
+  new Ad({ title, user, description, adDate, fee, status })
   .save().then( ads => {
     console.log("Ad sucessfully created!");
-    res.redirect('/ads');
+    res.redirect('/ad');
   });
 });
 
-/* CRU(D): Delete the ad in DB */
+/* CRU(D): Delete the Ad in DB */
 adRoutes.get('/delete/:id',ensureLoggedIn("/auth/login"), (req,res) => {
   Ad.findByIdAndRemove(req.params.id, () => res.redirect('/ads'));
 })

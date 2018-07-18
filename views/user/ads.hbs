@@ -20,11 +20,11 @@
     {{#each ads}}
         <li>
             <div>
-                <p>{{user}}</p>
-                <p>{{description}}</p>
-                <p>{{adDate}}</p>
-                <p>{{fee}}</p>
-                <p>{{status}}</p>
+                <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>
+                <p>Descripción: {{description}}</p>
+                <p>Date for service: {{adDate}}</p>
+                <p>Fee: {{fee}}</p>
+                <p>Status: {{status}}</p>
                 <a href="/{{_id}}">Delete Ad</a>
             </div>
         </li>

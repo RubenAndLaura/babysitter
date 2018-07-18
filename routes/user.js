@@ -51,7 +51,7 @@ router.post(
 /* GET Edit the user in DB */
 router.get("/profile/edit", ensureLoggedIn("/auth/login"), (req, res, next) => {
   User.findById(req.user.id).then(user => {
-    res.render("/edit", { user });
+    res.render("user/edit", { user });
   });
 });
 
@@ -75,7 +75,7 @@ router.post("/profile/edit", ensureLoggedIn("/auth/login"), (req, res) => {
     email,
     password
   }).then(user => {
-    res.redirect("/profile/:id");
+    res.redirect("/user/profile");
   });
 });
 

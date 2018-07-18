@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const commentSchema = new Schema({
-  userFrom: Schema.Types.ObjectId,
-  userTo: Schema.Types.ObjectId,
+  userFrom: {type: Schema.Types.ObjectId, ref: 'User'},
+  userTo:{type: Schema.Types.ObjectId, ref: 'User'},
   comment: String,
 }, 
 {
