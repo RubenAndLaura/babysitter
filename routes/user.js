@@ -16,7 +16,7 @@ router.get(
   "/profile/comment/:id",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    Comment.find({ userTo: req.params.id }).sort(-1).then(comment => {
+    Comment.find({ userTo: req.params.id }).then(comment => {
       res.render("user/comment", {
         comment,
         userTo: req.params.id,
