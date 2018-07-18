@@ -1,103 +1,53 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">My Baby Sitter</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/ad">View ads</a>
       <a class="nav-item nav-link" href="/user/profile">Profile</a>
       <a class="nav-item nav-link" href="/">Logout</a>
     </div>
   </div>
 </nav>
 
-<br><br>
-
-<h2>Create Ad</h2>
-
-<form action="/ad/new" method="POST" id="form-container">
-  
-  <label for="title">Title</label>
-  <input id="fee" type="text" name="title" placeholder="Ad title" required>
-
-  <br><br>
-  
-  <label for="description">Description</label>
-  <textarea name="description" rows="5" cols="40" required></textarea>
-
-  <br><br>
-
-  <label for="adDate">Date for service</label>
-  <input id="adDate" type="date" name="adDate" placeholder="adDate" required>
-
-  <br><br>
-
-  <label for="fee">Fee</label>
-  <input id="fee" type="text" name="fee" placeholder="Fee" required>
-
-  <br><br>
-
-  <button>Create Ad</button>
-
-  <br><br>
-
-<a href="/ad">Back to the list</a>
+<br>
+<br>
 
 
 
+<form class="created_ad_form map-form" action="/ad/new" method="POST">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" name="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" rows="3"  name="description" placeholder="Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="adDate">Date of service:</label>
+    <input type="date" class="form-control" name="adDate">
+  </div>
+  <div class="form-group">
+    <label for="fee">Fee:</label>
+    <input type="text" class="form-control" name="fee" placeholder="Fee">
+  </div>
+  <div class="form-group">
+    <label for="title">Address:</label>
+    <input id="geocomplete" type="text" class="form-control" name='address' placeholder="Address" size="90"/>
+  </div>
+   
+  <button type="hidden" class="btn btn-primary">Create Ad</button>
+</form>
 
+<br>
 
+<div class="map_container">
+  <div class="map_canvas" style="height: 500px" id='map'></div>
+  <pre id="logger">Log:</pre>
+</div>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>GeoComplete</title>
-    <meta charset="UTF-8">
-    
-  </head>
-  <body>
-
-    <form>
-      <input id="geocomplete" type="text" placeholder="Type in an address" size="90" />
-      <input id="find" type="button" value="find" />
-    </form>
-        
-    <div class="map_canvas" style="height: 500px;"></div>
-    
-    <pre id="logger">Log:</pre>
-    
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDLgpKls_jVtKNJTpPPQirv9kYYL3Hj1UA&libraries=places"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="/javascripts/geolocation.js"></script>
-    <script>
-      $(function(){
-        
-        var options = {
-          map: ".map_canvas"
-        };
-        
-        $("#geocomplete").geocomplete(options)
-          .bind("geocode:result", function(event, result){
-            
-          })
-          .bind("geocode:error", function(event, status){
-            
-          })
-          .bind("geocode:multiple", function(event, results){
-            
-          });
-        
-        $("#find").click(function(){
-          $("#geocomplete").trigger("geocode");
-        });
-        
-        $("#examples a").click(function(){
-          $("#geocomplete").val($(this).text()).trigger("geocode");
-          return false;
-        });
-        
-      });
-    </script>
-  </body>
-</html>
 

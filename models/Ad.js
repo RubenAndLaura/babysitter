@@ -7,6 +7,7 @@ const adSchema = new Schema({
   description: String,
   adDate: Date,
   fee: Number,
+  address: String,
   status: { type: String, enum: ["Pending", "Accepted", "Done"], default: "Pending"}
 }, 
 {

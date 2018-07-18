@@ -21,4 +21,19 @@ a {
   text-align: center;
   margin-top: 50px; }
 
+.created_ad_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 35rem 0 35rem; }
+
+.map_form {
+  display: flex;
+  justify-content: center; }
+
+.map_container {
+  height: 200px;
+  justify-content: center;
+  padding: 0 30rem 0 30rem; }
+
 /*# sourceMappingURL=style.css.map */
