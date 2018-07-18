@@ -16,7 +16,7 @@ router.get(
   "/profile/comment/:id",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    Comment.find({ userTo: req.params.id }).sort(-1).then(comment => {
+    Comment.find({ userTo: req.params.id }).then(comment => {
       res.render("user/comment", {
         comment,
         userTo: req.params.id,
@@ -51,7 +51,7 @@ router.post(
 /* GET Edit the user in DB */
 router.get("/profile/edit", ensureLoggedIn("/auth/login"), (req, res, next) => {
   User.findById(req.user.id).then(user => {
-    res.render("/edit", { user });
+    res.render("user/edit", { user });
   });
 });
 
@@ -75,7 +75,7 @@ router.post("/profile/edit", ensureLoggedIn("/auth/login"), (req, res) => {
     email,
     password
   }).then(user => {
-    res.redirect("/profile/:id");
+    res.redirect("/user/profile");
   });
 });
 
