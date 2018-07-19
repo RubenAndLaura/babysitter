@@ -1,11 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="#">My Baby Sitter</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/ad/new">Create Ad<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="/ad/new">Create Ad
+        <span class="sr-only">(current)</span>
+      </a>
       <a class="nav-item nav-link" href="/user/profile">Profile</a>
       <a class="nav-item nav-link" href="/">Logout</a>
     </div>
@@ -14,20 +17,40 @@
 
 <br></br>
 
-<h1>Ads List</h1>
+<h2>Ads List</h2>
 
-<ul>
-    {{#each ads}}
-        <li>
-            <div>
-                <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>
-                <p>Descripción: {{description}}</p>
-                <p>Address: {{address}}</p>
-                <p>Date for service: {{adDate}}</p>
-                <p>Fee: {{fee}}</p>
-                <p>Status: {{status}}</p>
-                <a href="/ad/delete/{{_id}}">Delete Ad</a>
-            </div>
-        </li>
-    {{/each}}
-</ul>
+
+{{#each ads}}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <p><b>Name and Lastname: </b>{{user.name}} {{user.lastname}}</p>
+    <p><b>Descripción: </b>{{description}}</p>
+    <p><b>Address: </b>{{address}}</p>
+    <p><b>Date for service: </b>{{adDate}}</p>
+    <p><b>Fee: </b>{{fee}}</p>
+    <p><b>Status: </b>{{status}}</p>
+    <a href="/ad/delete/{{_id}}">Delete Ad</a>
+    </div>
+    </div>
+</div>
+{{/each}}
+    <div class="col-sm">
+      <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>
+    <p>Descripción: {{description}}</p>
+    <p>Address: {{address}}</p>
+    <p>Date for service: {{adDate}}</p>
+    <p>Fee: {{fee}}</p>
+    <p>Status: {{status}}</p>
+    <a href="/ad/delete/{{_id}}">Delete Ad</a>
+    </div>
+    <div class="col-sm">
+      <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>
+    <p>Descripción: {{description}}</p>
+    <p>Address: {{address}}</p>
+    <p>Date for service: {{adDate}}</p>
+    <p>Fee: {{fee}}</p>
+    <p>Status: {{status}}</p>
+    <a href="/ad/delete/{{_id}}">Delete Ad</a>
+    </div>
+  

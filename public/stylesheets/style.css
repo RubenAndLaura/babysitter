@@ -9,9 +9,6 @@ a {
 #navbarNavAltMarkup {
   justify-content: flex-end; }
 
-.content {
-  height: 100vh; }
-
 .baby {
   background-repeat: no-repeat;
   height: 500px;
@@ -35,5 +32,9 @@ a {
   height: 200px;
   justify-content: center;
   padding: 0 30rem 0 30rem; }
+
+.profile_container {
+  display: flex;
+  justify-content: center; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,23 +1,318 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
   <a class="navbar-brand" href="/">My Baby Sitter</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       {{#unless user}}
-      <a class="nav-item nav-link active" href="auth/login">Log In <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="auth/login">Log In
+        <span class="sr-only">(current)</span>
+      </a>
       <a class="nav-item nav-link" href="auth/signup">Sign Up</a>
-      {{/unless}}
-      {{#if user}}
+      {{/unless}} {{#if user}}
       <a class="nav-item nav-link" href="/auth/logout">Log Out</a>
       {{/if}}
     </div>
   </div>
 </nav>
 <div class="content">
-    <div>
-        <h1 class="title">Deja a tu peque en buenas manos</h1>
-        <img class="baby" src="../images/free-babysitter-vector.webp" alt="">
-    </div>
+  <div>
+    <img src="/images/logo_nanny.png" alt="">
+    <h1 class="title">Deja a tu peque en buenas manos</h1>
+    <img class="baby" src="../images/free-babysitter-vector.webp" alt="">
+  </div>
 </div>
+
+<div class="row">
+  <div class="col-sm text-center margin">
+    <i class="fas fa-glass-martini"></i>
+    <h2>Web design
+    </h2>
+    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum vehicula erat non congue
+      cursus. Aenean auctor nulla quis augue dictum, sed sagittis odio varius Link</p>
+  </div>
+  <div class="col-sm text-center margin">
+    <i class="fas fa-star"></i>
+    <h2>Web development</h2>
+    <p>Duis tempus leo vitae ipsum viverra, blandit condimentum sapien porttitor. Duis porttitor sed metus eget mollis. Curabitur
+      bibendum imperdiet tortor, ut pulvinar purus elementum nspendisse at erat luctus.</p>
+  </div>
+  <div class="col-sm text-center margin">
+    <i class="fas fa-heart"></i>
+    <h2>User interface</h2>
+    <p>Cras aliquet venenatis porttitor. Donec rutrum sapien et sapien dignissim, eu dapibus mi molestie. Suspendisse dictum
+      convallis quam et sodales. Praesent non enim et magna congue gravida.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small bg-info mdb-color lighten-3 pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Content -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Footer Content</h5>
+          <p>Here you can use rows and columns here to organize your footer content.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate esse
+            quasi, veritatis totam voluptas nostrum.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <p>
+                <a href="#!">PROJECTS</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#!">ABOUT US</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#!">BLOG</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#!">AWARDS</a>
+              </p>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Contact details -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <p>
+                <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+            </li>
+            <li>
+              <p>
+                <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+            </li>
+            <li>
+              <p>
+                <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+            </li>
+            <li>
+              <p>
+                <i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+          <!-- Social buttons -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+          <!-- Facebook -->
+          <a type="button" class="btn-floating btn-fb">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <!-- Twitter -->
+          <a type="button" class="btn-floating btn-tw">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <!-- Google +-->
+          <a type="button" class="btn-floating btn-gplus">
+            <i class="fa fa-google-plus"></i>
+          </a>
+          <!-- Dribbble -->
+          <a type="button" class="btn-floating btn-dribbble">
+            <i class="fa fa-dribbble"></i>
+          </a>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <!-- Footer -->
+<footer class="page-footer font-small bg-info mdb-color pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+      <!-- Footer links -->
+      <div class="row text-center text-md-left mt-3 pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
+          <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit.</p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+          <p>
+            <a href="#!">MDBootstrap</a>
+          </p>
+          <p>
+            <a href="#!">MDWordPress</a>
+          </p>
+          <p>
+            <a href="#!">BrandFlow</a>
+          </p>
+          <p>
+            <a href="#!">Bootstrap Angular</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+          <p>
+            <a href="#!">Your Account</a>
+          </p>
+          <p>
+            <a href="#!">Become an Affiliate</a>
+          </p>
+          <p>
+            <a href="#!">Shipping Rates</a>
+          </p>
+          <p>
+            <a href="#!">Help</a>
+          </p>
+        </div>
+
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <p>
+            <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fa fa-envelope mr-3"></i> info@gmail.com</p>
+          <p>
+            <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+          <p>
+            <i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Footer links -->
+
+      <hr>
+
+      <!-- Grid row -->
+      <div class="row d-flex align-items-center">
+
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8">
+
+          <!--Copyright-->
+          <p class="text-center text-md-left">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/bootstrap-tutorial/">
+              <strong> MDBootstrap.com</strong>
+            </a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0">
+
+          <!-- Social buttons -->
+          <div class="text-center text-md-right">
+            <ul class="list-unstyled list-inline">
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+  </footer>
+  <!-- Footer -->
