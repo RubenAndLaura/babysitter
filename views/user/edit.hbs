@@ -15,7 +15,7 @@
 
 <h1>Edit profile</h1>
 
-
+{{#with user}}
 <form action="/user/profile/edit" method="POST" id="form-container" class="created_ad_form map-form" enctype="multipart/form-data">
   <div class="form-group">
     <label for="photo">Upload your photo</label>
@@ -23,43 +23,39 @@
   </div>  
   <div class="form-group">
     <label for="exampleFormControlInput1">Email</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <input type="email" class="form-control" id="email" name ="email" value="{{this.email}}" placeholder="Example: mybabysitter@gmails.com" required>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Password</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="Password" value="{{this.password}}" placeholder="Password" required>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Name</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" value="{{this.name}}" placeholder="Name" required>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Lastname</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <label for="lastname">Lastname</label>
+    <input type="text" class="form-control" id="lastname" name="lastname" value="{{this.lastname}}" placeholder="Lastname" required>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Address</label>
-    <input type="email" class="form-control col-3" id="exampleFormControlInput1" placeholder="Street">
-    <input type="email" class="form-control col-3" id="exampleFormControlInput1" placeholder="City">
-    <input type="email" class="form-control col-3" id="exampleFormControlInput1" placeholder="Zip">
+    <label for="address">Address</label>
+    <input type="text" class="form-control col-3" id="street" name="street" value="{{this.address.street}}" placeholder="Street" required>
+    <input type="text" class="form-control col-3" id="city" name="city" value="{{this.address.city}}" placeholder="City" required>
+    <input type="text" class="form-control col-3" id="zip" name="zip" value="{{this.address.zip}}" placeholder="Zip"required>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Phone</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <label for="phone">Phone</label>
+    <input type="text" class="form-control" id="phone" name="phone" value="{{this.phone}}" placeholder="phone" required>
   </div>
   <div class="form-check">
-    <label class="form-check-label" for="defaultCheck1">Do you want to be a nanny?</label>
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <input class="form-check-input" type="checkbox" value="" id="isbabysitter" name="isbabysitter" {{#if this.isBabysitter}}checked{{/if}}>
+    <label class="form-check-label" for="isbabysitter">Do you want to be a nanny?</label>
   </div>
   <button type="submit" class="btn btn-primary">Edit</button>
-  
 </form>
 
-<br>
-<br>
-<br>
-<br>
-
+{{/with}}
+{{!-- 
 <form action="/user/profile/edit" method="POST" id="form-container" enctype="multipart/form-data">
   
   <label for="photo">Upload your photo</label>
@@ -106,4 +102,4 @@
 
 <br><br>
 
-<a href="/user/delete">Eliminar Usuario</a>
+<a href="/user/delete">Eliminar Usuario</a> --}}
