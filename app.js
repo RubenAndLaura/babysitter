@@ -12,12 +12,12 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-    
+   
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/babysitter', {useMongoClient: true})
-  .then(() => { 
+  .connect(process.env.DBURL, {useMongoClient: true})
+  .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
     console.error('Error connecting to mongo', err)
@@ -64,6 +64,16 @@ hbs.registerHelper('ifUndefined', (value, options) => {
       return options.inverse(this);
   } else {
       return options.fn(this);
+  }
+});
+
+hbs.registerHelper('ifEquals', (value1, value2, scope, options) => {
+  if (arguments.length < 2)
+      throw new Error("Handlebars Helper ifUndefined needs 2 parameter");
+  if (value1 == value2 ) {
+      return options.fn(scope);
+  } else {
+      return options.inverse(scope);
   }
 });
   

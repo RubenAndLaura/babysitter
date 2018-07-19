@@ -27,6 +27,15 @@ adRoutes.post('/new', ensureLoggedIn("/auth/login"), (req, res, next) => {
   });
 });
 
+/* CR(U)D: Update Status Ad in DB */
+adRoutes.get('/accepted/:id',ensureLoggedIn("/auth/login"), (req, res, next) => {
+  const status="Accepted"
+  Ad.findByIdAndUpdate(req.params.id,{status: "Accepted"})
+  .then(()=>{
+    res.redirect('/ad');
+  })
+})
+
 /* CRU(D): Delete the Ad in DB */
 adRoutes.get('/delete/:id',ensureLoggedIn("/auth/login"), (req, res, next) => {
   const id = req.params.id
