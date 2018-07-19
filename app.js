@@ -17,7 +17,7 @@ const flash      = require("connect-flash");
 mongoose.Promise = Promise;
 mongoose
   .connect('mongodb://localhost/babysitter', {useMongoClient: true})
-  .then(() => {
+  .then(() => { 
     console.log('Connected to Mongo!')
   }).catch(err => {
     console.error('Error connecting to mongo', err)

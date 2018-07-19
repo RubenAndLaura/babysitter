@@ -25,12 +25,12 @@
   <div class="row">
     <div class="col-sm-5">
       <p><b>Name and Lastname: </b>{{user.name}} {{user.lastname}}</p>
-    <p><b>Descripción: </b>{{description}}</p>
-    <p><b>Address: </b>{{address}}</p>
-    <p><b>Date for service: </b>{{adDate}}</p>
-    <p><b>Fee: </b>{{fee}}</p>
-    <p><b>Status: </b>{{status}}</p>
-    <a href="/ad/delete/{{_id}}">Delete Ad</a>
+       <p><b>Descripción: </b>{{description}}</p>
+       <p><b>Address: </b>{{address}}</p>
+       <p><b>Date for service: </b>{{adDate}}</p>
+       <p><b>Fee: </b>{{fee}}</p>
+       <p><b>Status: </b>{{status}}</p>
+       <a href="/ad/delete/{{_id}}">Delete Ad</a>
     </div>
     </div>
 </div>
@@ -53,4 +53,20 @@
     <p>Status: {{status}}</p>
     <a href="/ad/delete/{{_id}}">Delete Ad</a>
     </div>
-  
+
+    
+  <div id="my_map" style="height: 500px">
+
+  </div>
+<script>
+  $.geocomplete({
+  map: "#my_map",
+  mapOptions: {
+    zoom: 10
+  },
+  markerOptions: {
+    draggable: true
+  },
+  details: "#my_form"
+});
+</script>

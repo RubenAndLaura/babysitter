@@ -8,8 +8,8 @@ const adSchema = new Schema({
   adDate: Date,
   fee: Number,
   address: String,
-  status: { type: String, enum: ["Pending", "Accepted", "Done"], default: "Pending"}
-}, 
+  status: { type: String, enum: ["Pending", "Accepted", "Done"], default: "Pending"},
+  }, 
 {
   timestamps: {
     createdAt: 'created_at',
