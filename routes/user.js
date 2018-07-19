@@ -42,10 +42,21 @@ router.post(
   "/profile/comment/delete",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    const { commentId, userTo } = req.body
-    Comment.findByIdAndRemove(commentId).then( () =>
-      res.redirect(`/user/profile/comment/${userTo}`)
-    );
+    //console.log(req.body)
+    //console.log("siguiente")
+    //console.log(res)
+    const { commentId} = req.body
+    //5b509b7fb14f0324faa65bbd
+    
+    let aux=Comment.findByIdAndRemove(commentId)
+    Promise.all([aux]).then(values=>{
+      console.log(values[0])
+      res.redirect(`/user/profile/comment/${values[0].userFrom}`)
+    })
+    // Comment.findByIdAndRemove(commentId).then( () =>{
+    //   console.log(userTo)
+    //   res.redirect(`/user/profile/comment/${userTo._id}`)
+    // });
   }
 );
 
