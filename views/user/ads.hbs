@@ -19,7 +19,6 @@
 
 <h2>Ads List</h2>
 
-
 {{#each ads}}
 <div class="container">
   <div class="row">
@@ -30,12 +29,16 @@
     <p><b>Date for service: </b>{{adDate}}</p>
     <p><b>Fee: </b>{{fee}}</p>
     <p><b>Status: </b>{{status}}</p>
-    <a href="/ad/delete/{{_id}}">Delete Ad</a>
+    <a href="/ad/delete/{{_id}}">Delete Ad</a><br>
+    {{#ifEquals status "Pending" this}}
+    <a href="/ad/accepted/{{_id}}">Accept Offer</a>
+    {{/ifEquals}}
     </div>
     </div>
 </div>
 {{/each}}
-    <div class="col-sm">
+
+    {{!-- <div class="col-sm">
       <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>
     <p>Descripción: {{description}}</p>
     <p>Address: {{address}}</p>
@@ -52,5 +55,5 @@
     <p>Fee: {{fee}}</p>
     <p>Status: {{status}}</p>
     <a href="/ad/delete/{{_id}}">Delete Ad</a>
-    </div>
+    </div> --}}
   

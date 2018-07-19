@@ -66,6 +66,16 @@ hbs.registerHelper('ifUndefined', (value, options) => {
       return options.fn(this);
   }
 });
+
+hbs.registerHelper('ifEquals', (value1, value2, scope, options) => {
+  if (arguments.length < 2)
+      throw new Error("Handlebars Helper ifUndefined needs 2 parameter");
+  if (value1 == value2 ) {
+      return options.fn(scope);
+  } else {
+      return options.inverse(scope);
+  }
+});
   
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
