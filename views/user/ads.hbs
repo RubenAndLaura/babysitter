@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="#">My Baby Sitter</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+  <a class="navbar-brand" href="/">My Baby Sitter</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -17,12 +17,13 @@
 
 <br></br>
 
-<h2>Ads List</h2>
+<h2 class="adslist-title">ADS LIST</h2>
 
-{{#each ads}}
+
 <div class="container">
   <div class="row">
-    <div class="col-sm-5">
+    {{#each ads}}
+    <div class="col-sm-6 bg-info ads">
       <p><b>Name and Lastname: </b><a href="/user/profile/{{user._id}}">{{user.name}}</a> <a href="/user/profile/{{user._id}}">{{user.lastname}}</a></p>
     <p><b>Descripción: </b>a{{description}}</p>
     <p><b>Address: </b>{{address}}</p>
@@ -34,10 +35,11 @@
     <a href="/ad/accepted/{{_id}}">Accept Offer</a>
     {{/ifEquals}}
     </div>
+    {{/each}}
     </div>
   </div>
 </div>
-{{/each}}
+
 
  {{!--    {{!-- <div class="col-sm">
       <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>

@@ -16,26 +16,31 @@
 <br></br>
 <br></br>
 
-<h2>All the comments</h2>
-{{#each comment}}
-<div>
-    <p>User from: {{this.userFrom.name}} {{this.userFrom.lastname}}</p>
-    <p>User to: {{this.userTo.name}} {{this.userTo.lastname}}</p>
-    <p>Comment: {{this.comment}}</p>
+<h2 class="comments_title">ALL THE COMMENTS</h2>
+
+<div class="container">
+    <div class="column">
+        {{#each comment}}
+        <div class="md-12 comment_container">
+    <p><b>User from:</b> {{this.userFrom.name}} {{this.userFrom.lastname}}</p>
+    <p><b>User to:</b> {{this.userTo.name}} {{this.userTo.lastname}}</p>
+    <text><b>Comment:</b> {{this.comment}}</text>
     <form action="/user/profile/comment/delete" method="POST">
         <input type="hidden" name="commentId" value="{{_id}}">
        <a href="#"><input type="hidden" name="userTo" value="{{userTo}}"></a> 
-        <input type="submit" value="Delete comment">
+        <input class="delete" type="submit" value="Delete comment">
     </form>
-</div>
-{{/each}}
-
-<br></br>
-
+    </div>
+    {{/each}}
+    </div>
 <form action="/user/profile/comment" method="POST">
     <label for="">Please, write your comment here!:</label>
-    <input type="text" name="comment">{{comment.comment}}</input>
+    <textarea type="text" name="comment" col="9" row="9">{{comment.comment}}</textarea>
     <input type="hidden" name="userTo" value="{{userTo}}">
     <input type="hidden" name="userFrom" value="{{userFrom}}">
     <input type="submit" value="Send comment">
 </form>
+</div>
+
+
+<br></br>

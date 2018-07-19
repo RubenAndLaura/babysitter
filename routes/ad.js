@@ -7,6 +7,8 @@ const {ensureLoggedIn} = require('../middlewares/isLoggedIn');
 /* C(R)UD: Retrieve -> List all Ads */
 adRoutes.get('/', ensureLoggedIn("/auth/login"), (req, res, next) => {
   Ad.find().populate("user").sort({updated_at:-1}).then( ads => {
+    console.log(ads)
+   //let ad= dateConverter(ads)
     res.render('user/ads', {ads});
   })
 });
@@ -42,5 +44,13 @@ adRoutes.get('/delete/:id',ensureLoggedIn("/auth/login"), (req, res, next) => {
   Ad.findByIdAndRemove(id).then( () => 
   res.redirect('/ad'));
 })
+
+/*function dateConverter(arr){
+  let aux=[]
+  aux=arr.forEach(e => {
+    e.adDate.slice(0,9)
+  });
+return aux
+}*/
 
 module.exports = adRoutes;

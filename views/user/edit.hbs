@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">My Baby Sitter</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+  <a class="navbar-brand" href="/">My Baby Sitter</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -13,9 +13,11 @@
   </div>
 </nav>
 
-<h1>Edit profile</h1>
+
 
 {{#with user}}
+<div class="editprofile_container">
+<h3 class="edit_profile">EDIT PROFILE</h3>
 <form action="/user/profile/edit" method="POST" id="form-container" class="created_ad_form map-form" enctype="multipart/form-data">
   <div class="form-group">
     <label for="photo">Upload your photo</label>
@@ -53,6 +55,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Edit</button>
 </form>
+</div>
 
 {{/with}}
 {{!-- 
