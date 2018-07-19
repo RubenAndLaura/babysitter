@@ -1,10 +1,5 @@
 require("dotenv").config();
 
-// const dotenv = require("dotenv");
-
-// dotenv.config();
-// dotenv.config({path: __dirname + "/.env.private"});
-
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 const multer = require("multer");
