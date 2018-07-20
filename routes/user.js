@@ -48,13 +48,13 @@ router.post(
     //console.log(req.body)
     //console.log("siguiente")
     //console.log(res)
-    const { commentId} = req.body
+    const { commentId, userFrom} = req.body
     //5b509b7fb14f0324faa65bbd
-    
+    console.log(commentId, userFrom);
     Comment.findByIdAndRemove(commentId).then(values=>{
-      console.log(values[0])
-      res.redirect(`/user/profile/comment/${values[0].userFrom}`)
+      res.redirect(`/user/profile/comment/${userFrom}`)
     })
+    .catch(err => console.log(err))
     // Comment.findByIdAndRemove(commentId).then( () =>{
     //   console.log(userTo)
     //   res.redirect(`/user/profile/comment/${userTo._id}`)

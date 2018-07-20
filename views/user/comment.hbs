@@ -27,7 +27,7 @@
     <text><b>Comment:</b> {{this.comment}}</text>
     <form action="/user/profile/comment/delete" method="POST">
         <input type="hidden" name="commentId" value="{{_id}}">
-       <a href="#"><input type="hidden" name="userTo" value="{{userTo}}"></a> 
+        <input type="hidden" name="userFrom" value="{{userFrom._id}}">
         <input class="delete btn btn-danger" type="submit" value="Delete comment">
     </form>
     </div>
