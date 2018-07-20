@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
-    <a class="navbar-brand" href="#">My Baby Sitter</a>
+<nav class="nav-bar navbar navbar-expand-lg navbar-light bg-info fixed-top">
+    <a class="navbar-brand" href="/">My Baby Sitter</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="/">Home</a>
             <a class="nav-item nav-link" href="/user/profile">Profile</a>
-            <a class="nav-item nav-link" href="#">Logout</a>
+            <a class="nav-item nav-link" href="/auth/logout">Logout</a>
         </div>
     </div>
 </nav>
@@ -16,7 +16,7 @@
 <br></br>
 <br></br>
 
-<h2 class="comments_title">ALL THE COMMENTS</h2>
+<h2 class="comments-title">ALL THE COMMENTS</h2>
 
 <div class="container">
     <div class="column">
@@ -28,19 +28,150 @@
     <form action="/user/profile/comment/delete" method="POST">
         <input type="hidden" name="commentId" value="{{_id}}">
        <a href="#"><input type="hidden" name="userTo" value="{{userTo}}"></a> 
-        <input class="delete" type="submit" value="Delete comment">
+        <input class="delete btn btn-danger" type="submit" value="Delete comment">
     </form>
     </div>
     {{/each}}
     </div>
 <form action="/user/profile/comment" method="POST">
-    <label for="">Please, write your comment here!:</label>
-    <textarea type="text" name="comment" col="9" row="9">{{comment.comment}}</textarea>
+    <label for=""><b>Please, write your comment here!:</b></label>
+    <textarea type="text" name="comment" class="text-area" col="9" rows="9">{{comment.comment}}</textarea>
     <input type="hidden" name="userTo" value="{{userTo}}">
     <input type="hidden" name="userFrom" value="{{userFrom}}">
-    <input type="submit" value="Send comment">
+    <input type="submit" value="Send comment" class="text-success">
 </form>
 </div>
 
 
 <br></br>
+
+<!-- Footer -->
+    <footer class="page-footer font-small bg-info pt-4 footer-ads">
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">My babysitter</h6>
+            <p>This company was created thanks to the collaboration of Ruben 
+              and Laura. It has been a great effort and a great team work.</p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <p>
+              <a href="#!">Nanny</a>
+            </p>
+            <p>
+              <a href="#!">English classes</a>
+            </p>
+            <p>
+              <a href="#!">Play with the kids</a>
+            </p>
+            <p>
+              <a href="#!">Much more</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Future services</h6>
+            <p>
+              <a href="#!">Cleaning</a>
+            </p>
+            <p>
+              <a href="#!">Walk dogs</a>
+            </p>
+            <p>
+              <a href="#!">Home care</a>
+            </p>
+            <p>
+              <a href="#!">Private lessons</a>
+            </p>
+          </div>
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p>
+              <i class="fa fa-home mr-3"></i> Madrid, 28012, ES</p>
+            <p>
+              <i class="fa fa-envelope mr-3"></i> mybabysitter@gmail.com</p>
+            <p>
+              <i class="fa fa-phone mr-3"></i> + 34 634 567 88</p>
+            <p>
+              <i class="fa fa-print mr-3"></i> + 34 634 567 89</p>
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Footer links -->
+
+        <hr>
+
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center">
+
+          <!-- Grid column -->
+          <div class="col-md-7 col-lg-8">
+
+            <!--Copyright-->
+            <p class="text-center text-md-left">© 2018 Copyright:
+              <a href="https://mdbootstrap.com/bootstrap-tutorial/">
+                <strong>https://babysitter-ironhack.herokuapp.com/</strong>
+              </a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-5 col-lg-4 ml-lg-0">
+
+            <!-- Social buttons -->
+            <div class="text-center text-md-right">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-facebook fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-twitter fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-google-plus fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-linkedin fa-3x"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+       
+
+    </footer>
+  </div>
+</div>

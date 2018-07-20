@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+<nav class="nav-bar navbar navbar-expand-lg navbar-light bg-info fixed-top">
   <a class="navbar-brand" href="/">My Baby Sitter</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -6,11 +6,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">Home</a>
       <a class="nav-item nav-link active" href="/ad/new">Create Ad
         <span class="sr-only">(current)</span>
       </a>
       <a class="nav-item nav-link" href="/user/profile">Profile</a>
-      <a class="nav-item nav-link" href="/">Logout</a>
+      <a class="nav-item nav-link" href="/auth/logout">Logout</a>
     </div>
   </div>
 </nav>
@@ -24,15 +25,15 @@
   <div class="row">
     {{#each ads}}
     <div class="col-sm-6 bg-info ads">
-      <p><b>Name and Lastname: </b><a href="/user/profile/{{user._id}}">{{user.name}}</a> <a href="/user/profile/{{user._id}}">{{user.lastname}}</a></p>
-    <p><b>Descripción: </b>a{{description}}</p>
+      <p><b>Name and Lastname: </b><a href="/user/profile/{{user._id}}" class="text-white">{{user.name}}</a> <a href="/user/profile/{{user._id}}" class="text-white">{{user.lastname}}</a></p>
+    <p><b>Descripción: </b>{{description}}</p>
     <p><b>Address: </b>{{address}}</p>
     <p><b>Date for service: </b>{{adDate}}</p>
     <p><b>Fee: </b>{{fee}}</p>
     <p><b>Status: </b>{{status}}</p>
-    <a href="/ad/delete/{{_id}}">Delete Ad</a><br>
+    <button class="btn btn-danger"><a class="text-white" href="/ad/delete/{{_id}}">Delete Ad</a><br></button>
     {{#ifEquals status "Pending" this}}
-    <a href="/ad/accepted/{{_id}}">Accept Offer</a>
+    <button class="btn btn-success"><a class="text-white" href="/ad/accepted/{{_id}}">Accept Offer</a></button>
     {{/ifEquals}}
     </div>
     {{/each}}
@@ -41,38 +42,133 @@
 </div>
 
 
- {{!--    {{!-- <div class="col-sm">
-      <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>
-    <p>Descripción: {{description}}</p>
-    <p>Address: {{address}}</p>
-    <p>Date for service: {{adDate}}</p>
-    <p>Fee: {{fee}}</p>
-    <p>Status: {{status}}</p>
-    <a href="/ad/delete/{{_id}}">Delete Ad</a>
-    </div>
-    <div class="col-sm">
-      <p>Name and Lastname: {{user.name}} {{user.lastname}}</p>
-    <p>Descripción: {{description}}</p>
-    <p>Address: {{address}}</p>
-    <p>Date for service: {{adDate}}</p>
-    <p>Fee: {{fee}}</p>
-    <p>Status: {{status}}</p>
-    <a href="/ad/delete/{{_id}}">Delete Ad</a>
-    </div>
+<!-- Footer -->
+    <footer class="page-footer font-small bg-info pt-4 footer-ads">
 
-    
-  <div id="my_map" style="height: 500px">
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
 
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">My babysitter</h6>
+            <p>This company was created thanks to the collaboration of Ruben 
+              and Laura. It has been a great effort and a great team work.</p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <p>
+              <a href="#!">Nanny</a>
+            </p>
+            <p>
+              <a href="#!">English classes</a>
+            </p>
+            <p>
+              <a href="#!">Play with the kids</a>
+            </p>
+            <p>
+              <a href="#!">Much more</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Future services</h6>
+            <p>
+              <a href="#!">Cleaning</a>
+            </p>
+            <p>
+              <a href="#!">Walk dogs</a>
+            </p>
+            <p>
+              <a href="#!">Home care</a>
+            </p>
+            <p>
+              <a href="#!">Private lessons</a>
+            </p>
+          </div>
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p>
+              <i class="fa fa-home mr-3"></i> Madrid, 28012, ES</p>
+            <p>
+              <i class="fa fa-envelope mr-3"></i> mybabysitter@gmail.com</p>
+            <p>
+              <i class="fa fa-phone mr-3"></i> + 34 634 567 88</p>
+            <p>
+              <i class="fa fa-print mr-3"></i> + 34 634 567 89</p>
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Footer links -->
+
+        <hr>
+
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center">
+
+          <!-- Grid column -->
+          <div class="col-md-7 col-lg-8">
+
+            <!--Copyright-->
+            <p class="text-center text-md-left">© 2018 Copyright:
+              <a href="https://mdbootstrap.com/bootstrap-tutorial/">
+                <strong>https://babysitter-ironhack.herokuapp.com/</strong>
+              </a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-5 col-lg-4 ml-lg-0">
+
+            <!-- Social buttons -->
+            <div class="text-center text-md-right">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-facebook fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-twitter fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-google-plus fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-linkedin fa-3x"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+       
+
+    </footer>
   </div>
-<script>
-  $.geocomplete({
-  map: "#my_map",
-  mapOptions: {
-    zoom: 10
-  },
-  markerOptions: {
-    draggable: true
-  },
-  details: "#my_form"
-});
-</script> --}}
+</div>

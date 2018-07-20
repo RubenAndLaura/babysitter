@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+<nav class="nav-bar navbar navbar-expand-lg navbar-light bg-info fixed-top">
   <a class="navbar-brand" href="/">My Baby Sitter</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -6,9 +6,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">Home</a>
       <a class="nav-item nav-link" href="/ad">View ads</a>
       <a class="nav-item nav-link" href="/user/profile">Profile</a>
-      <a class="nav-item nav-link" href="/">Logout</a>
+      <a class="nav-item nav-link" href="/auth/logout">Logout</a>
     </div>
   </div>
 </nav>
@@ -17,7 +18,7 @@
 
 {{#with user}}
 <div class="editprofile_container">
-<h3 class="edit_profile">EDIT PROFILE</h3>
+<h3 class="edit-profile">EDIT PROFILE</h3>
 <form action="/user/profile/edit" method="POST" id="form-container" class="created_ad_form map-form" enctype="multipart/form-data">
   <div class="form-group">
     <label for="photo">Upload your photo</label>
@@ -53,56 +54,7 @@
     <input class="form-check-input" type="checkbox" value="" id="isbabysitter" name="isbabysitter" {{#if this.isBabysitter}}checked{{/if}}>
     <label class="form-check-label" for="isbabysitter">Do you want to be a nanny?</label>
   </div>
-  <button type="submit" class="btn btn-primary">Edit</button>
+  <button type="submit" class="edit_button btn btn-info">Edit</button>
 </form>
 </div>
-
 {{/with}}
-{{!-- 
-<form action="/user/profile/edit" method="POST" id="form-container" enctype="multipart/form-data">
-  
-  <label for="photo">Upload your photo</label>
-  <input type="file" id="photo" name="photo">
-
-  <br><br>
-  
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Email" value="{{user.email}}" required>
-    
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Password" value="{{user.password}}" required>
-
-  <br><br>
-
-  <label for="name">Name</label>
-  <input id="name" type="text" name="name" placeholder="Name" value="{{user.name}}" required>
-  <input id="lastname" type="text" name="lastname" placeholder="Lastname" value="{{user.lastname}}" required>
-
-  <br><br>
-
-  <label for="address">Address:</label>
-  <input id="street" type="text" name="street" placeholder="Street" value="{{user.address.street}}" required>
-  <input id="city" type="text" name="city" placeholder="City" value="{{user.address.city}}" required>
-  <input id="zip" type="text" name="zip" placeholder="Zip" value="{{user.address.zip}}" required>
- 
-  <br><br>
-
-  <label for="phone">Phone:</label>
-  <input id ="phone" type="text" name="phone" placeholder="Phone" value="{{user.phone}}" required>
-
-  <br><br>
-
-  <label for="isbabysitter">Do you want to be a nanny?</label>
-  <input id="isBabysitter" type="checkbox" name="isBabysitter" {{#if user.isBabysitter}}checked{{/if}}>
-
-  <br><br>
-
-  <button type="submit">EDIT</button>
-
-</form>
-
-<br><br>
-
-<a href="/user/delete">Eliminar Usuario</a> --}}

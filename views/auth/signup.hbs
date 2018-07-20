@@ -1,6 +1,5 @@
-<!-- views/auth/signup.hbs -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">My Baby Sitter</a>
+<nav class="nav-bar navbar navbar-expand-lg navbar-light bg-info fixed-top">
+  <a class="navbar-brand" href="/">My Baby Sitter</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,71 +7,17 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="/">Home</a>
+      <a class="nav-item nav-link" href="/auth/login">Login</a>
+      <a class="nav-item nav-link" href="/">Logout</a>
     </div>
   </div>
 </nav>
 
 <br><br>
 
-{{!-- <h2>Signup</h2>
-
-<form action="/auth/signup" method="POST" id="form-container" enctype="multipart/form-data">
-  
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Email" required>
-    
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Password" required>
-
-  <br><br>
-
-  <label for="name">Name</label>
-  <input id="name" type="text" name="name" placeholder="Name" required>
-  <input id="lastname" type="text" name="lastname" placeholder="Lastname" required>
-
-  <br><br>
-
-  <label for="address">Address:</label>
-  <input id="street" type="text" name="street" placeholder="Street" required>
-  <input id="city" type="text" name="city" placeholder="City" required>
-  <input id="zip" type="text" name="zip" placeholder="Zip" required>
- 
-  <br><br>
-
-  <label for="phone">Phone:</label>
-  <input id ="phone" type="text" name="phone" placeholder="Phone" required>
-
-  <br><br>
-
-  <label for="isbabysitter">Do you want to be a nanny?</label>
-  <input type="checkbox" name="isBabysitter" id="isBabysitter">
-
-  <br><br>
-
-  <label for="photo">Upload your photo</label>
-  <input type="file" id="photo" name="photo">
-
-
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Create account</button>
-
-  <br><br>
-
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form> --}}
 
 <!-- Default form register -->
-<div class="container">
+<div class="register-container">
   <div class="row">
     <div class="col-12 col-md-6 mx-auto">
       <form action="/auth/signup" method="POST" id="form-container" enctype="multipart/form-data">
@@ -122,5 +67,136 @@
 
       </form>
     </div>
+  </div>
+</div>
+
+<!-- Footer -->
+    <footer class="page-footer font-small bg-info pt-4">
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">My babysitter</h6>
+            <p>This company was created thanks to the collaboration of Ruben 
+              and Laura. It has been a great effort and a great team work.</p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <p>
+              <a href="#!">Nanny</a>
+            </p>
+            <p>
+              <a href="#!">English classes</a>
+            </p>
+            <p>
+              <a href="#!">Play with the kids</a>
+            </p>
+            <p>
+              <a href="#!">Much more</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Future services</h6>
+            <p>
+              <a href="#!">Cleaning</a>
+            </p>
+            <p>
+              <a href="#!">Walk dogs</a>
+            </p>
+            <p>
+              <a href="#!">Home care</a>
+            </p>
+            <p>
+              <a href="#!">Private lessons</a>
+            </p>
+          </div>
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p>
+              <i class="fa fa-home mr-3"></i> Madrid, 28012, ES</p>
+            <p>
+              <i class="fa fa-envelope mr-3"></i> mybabysitter@gmail.com</p>
+            <p>
+              <i class="fa fa-phone mr-3"></i> + 34 634 567 88</p>
+            <p>
+              <i class="fa fa-print mr-3"></i> + 34 634 567 89</p>
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Footer links -->
+
+        <hr>
+
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center">
+
+          <!-- Grid column -->
+          <div class="col-md-7 col-lg-8">
+
+            <!--Copyright-->
+            <p class="text-center text-md-left">© 2018 Copyright:
+              <a href="https://mdbootstrap.com/bootstrap-tutorial/">
+                <strong>https://babysitter-ironhack.herokuapp.com/</strong>
+              </a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-5 col-lg-4 ml-lg-0">
+
+            <!-- Social buttons -->
+            <div class="text-center text-md-right">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-facebook fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-twitter fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-google-plus fa-3x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm rgba-white-slight mx-1">
+                    <i class="fab fa-linkedin fa-3x"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+       
+
+    </footer>
   </div>
 </div>
