@@ -51,11 +51,11 @@
 
         <!-- Default input isBabySitter -->
         <label for="isbabysitter" class="grey-text">Do you want to be a nanny?</label>
-        <input type="checkbox" id="isBabysitter" name="isBabysitter" class="form-control" required>
+        <input type="checkbox" id="isBabysitter" name="isBabysitter" class="form-control">
 
         <!-- Default input photo -->
         <label for="photo" class="grey-text">Upload your photo</label>
-        <input type="file" id="photo" name="photo" class="form-control" required> {{#if message }}
+        <input type="file" id="photo" name="photo" class="form-control"> {{#if message }}
         <div class="error-message">{{ message }}</div>
         {{/if}}
 

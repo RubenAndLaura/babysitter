@@ -15,6 +15,14 @@ passport.use(new LocalStrategy((username, password, next) => {
       return;
     }
 
+    console.log(`El usuario encontrado es`)
+    console.log(foundUser)
+    console.log(password,username)
+    if(foundUser.password == null){
+      next(null, false, { message: 'Error, null password' });
+      return;
+    }
+
     if (!bcrypt.compareSync(password, foundUser.password)) {
       next(null, false, { message: 'Incorrect password' });
       return;
