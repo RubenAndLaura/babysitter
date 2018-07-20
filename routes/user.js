@@ -17,7 +17,10 @@ router.get(
   "/profile/comment/:id",
   ensureLoggedIn("/auth/login"),
   (req, res, next) => {
-    Comment.find({ userTo: req.params.id }).sort({updated_at:-1}).populate("userTo").populate("userFrom").then(comment => {
+    Comment
+      .find({ userTo: req.params.id })
+      .sort({updated_at:-1})
+      .populate("userTo").populate("userFrom").then(comment => {
       res.render("user/comment", {
         comment,
         userTo: req.params.id,
@@ -48,8 +51,7 @@ router.post(
     const { commentId} = req.body
     //5b509b7fb14f0324faa65bbd
     
-    let aux=Comment.findByIdAndRemove(commentId)
-    Promise.all([aux]).then(values=>{
+    Comment.findByIdAndRemove(commentId).then(values=>{
       console.log(values[0])
       res.redirect(`/user/profile/comment/${values[0].userFrom}`)
     })
